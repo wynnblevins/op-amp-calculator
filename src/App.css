@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* Base styles */
+body {
+  font-size: 16px;
+}
+
+/* Larger screens */
+@media (min-width: 992px) {
+  body {
+    font-size: 18px;
+  }
+} 
+
+/* Smaller tablets and mobiles */
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+}
