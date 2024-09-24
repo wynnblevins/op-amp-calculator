@@ -90,7 +90,7 @@ const OpAmpSchematic = (props: Props) => {
   } = props;
 
   return (
-    <Box sx={{ border: 'solid 10px black', marginTop: '10%' }}>
+    <Box sx={{ border: 'solid 10px black', marginTop: '3%' }}>
       { inverting ? 
       (
         <>
