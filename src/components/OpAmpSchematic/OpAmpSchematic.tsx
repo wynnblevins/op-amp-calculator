@@ -28,15 +28,15 @@ const InvertingOpAmpFeedbackResistorLbl = styled.p<{}>`
 
 const InvertingOpAmpInputVoltageLbl = styled.p<{}>`
   position: absolute;
-  top: 49%;
-  left: 20%;
+  top: 40%;
+  left: 24%;
   transform: translate(-50%, -50%);
 `;
 
 const InvertingOpAmpOutputVoltageLbl = styled.p<{}>`
   position: absolute;
-  top: 24%;
-  right: 20%;
+  top: 12%;
+  right: 24%;
   transform: translate(-50%, -50%);
 `;
 
@@ -56,15 +56,15 @@ const NonInvertingOpAmpInputResistorLbl = styled.p<{}>`
 
 const NonInvertingOpAmpInputVoltageLbl = styled.p<{}>`
   position: absolute;
-  top: 21%;
-  left: 22%;
+  top: 12%;
+  left: 28%;
   transform: translate(-50%, -50%);
 `;
 
 const NonInvertingOpAmpOutputVoltageLbl = styled.p<{}>`
   position: absolute;
-  top: 30%;
-  left: 80%;
+  top: 20%;
+  left: 76%;
   transform: translate(-50%, -50%);
 `;
 
