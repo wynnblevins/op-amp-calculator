@@ -28,7 +28,7 @@ const InvertingOpAmpFeedbackResistorLbl = styled.p<{}>`
 
 const InvertingOpAmpInputVoltageLbl = styled.p<{}>`
   position: absolute;
-  top: 40%;
+  top: 36%;
   left: 24%;
   transform: translate(-50%, -50%);
 `;
@@ -36,7 +36,7 @@ const InvertingOpAmpInputVoltageLbl = styled.p<{}>`
 const InvertingOpAmpOutputVoltageLbl = styled.p<{}>`
   position: absolute;
   top: 12%;
-  right: 24%;
+  left: 75%;
   transform: translate(-50%, -50%);
 `;
 

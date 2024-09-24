@@ -127,10 +127,45 @@ function App() {
     });
   };
 
+  const determineOutputInVolts = (value: number, unit: string): number => {
+    const MICRO = 0.000001;
+    const MILLI = 0.001;
+    const KILO = 1000;
+    const MEGA = 1000000;
+    const GIGA = 1000000000;
+
+    let voltage: number = 0;
+
+    switch (unit) {
+      case "µV": 
+        voltage = value * MICRO;
+        break;
+      case "mV": 
+        voltage = value * MILLI;
+        break;
+      case "V":
+        voltage = value;
+        break;
+      case "kV":
+        voltage = value * KILO;
+        break;
+      case "MV":
+        voltage = value * MEGA;
+        break;
+      case "GV":
+        voltage = value * GIGA;
+        break;
+      default:
+        throw new Error("Unknown voltage unit encountered!");
+    }
+    
+    return voltage;
+  };
+
   const determineResistanceInOhms = (value: number, unit: string): number => {
-    let KILO = 1000;
-    let MEGA = 1000000;
-    let GIGA = 1000000000;
+    const KILO = 1000;
+    const MEGA = 1000000;
+    const GIGA = 1000000000;
     let resistanceInOhms: number = 0;
 
     switch (unit) {
@@ -156,16 +191,17 @@ function App() {
   const performCalculations = async () => {
     const inputInOhms = determineResistanceInOhms(state.inputResistorValue, state.inputResistorUnit);
     const feedbackInOhms = determineResistanceInOhms(state.feedbackResistorValue, state.feedbackResistorUnit);
+    const voltage = determineOutputInVolts(state.inputVoltage, state.inputVoltageUnit);
 
     let gain, output;
     
     if (state.inverting) {
-      gain = -(feedbackInOhms / inputInOhms);
+      gain = -Math.abs(feedbackInOhms) / inputInOhms;
     } else {
       gain = 1 + (feedbackInOhms / inputInOhms);
     }
 
-    output = gain * state.inputVoltage;
+    output = gain * voltage;
     
     setState({
       ...state,
@@ -239,8 +275,6 @@ function App() {
           inputVoltageValue={`${state.inputVoltage} ${state.inputVoltageUnit}`}
           outputVoltageValue={`${state.outputVoltage || 0} V`}
         />
-        
-        {/* <OpAmpSchematicImg></OpAmpSchematicImg> */}
       </div>
     </ThemeProvider>
   );
