@@ -187,8 +187,8 @@ function App() {
             onChange={onAmpTypeChange}
             aria-label="Platform"
           >
-            <ToggleButton value="Inverting">Inverting</ToggleButton>
-            <ToggleButton value="Non Inverting">Non-Inverting</ToggleButton>
+            <ToggleButton value={true}>Inverting</ToggleButton>
+            <ToggleButton value={false}>Non-Inverting</ToggleButton>
           </ToggleButtonGroup>
         </div>
 
