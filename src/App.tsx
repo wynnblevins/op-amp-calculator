@@ -196,7 +196,7 @@ function App() {
     let gain, output;
     
     if (state.inverting) {
-      gain = -Math.abs(feedbackInOhms) / inputInOhms;
+      gain = feedbackInOhms / inputInOhms;
     } else {
       gain = 1 + (feedbackInOhms / inputInOhms);
     }
