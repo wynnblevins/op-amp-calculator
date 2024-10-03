@@ -12,6 +12,10 @@ const OpAmpSchematicImg = styled.img<{}>`
   position: relative
 `;
 
+const OpAmpSchematicContainer = styled.div<{}>`
+  
+`
+
 const InvertingOpAmpInputResistorLbl = styled.p<{}>`
   position: absolute;
   top: 58%;
@@ -35,8 +39,8 @@ const InvertingOpAmpInputVoltageLbl = styled.p<{}>`
 
 const InvertingOpAmpOutputVoltageLbl = styled.p<{}>`
   position: absolute;
-  top: 12%;
-  left: 75%;
+  top: 23%;
+  left: 80%;
   transform: translate(-50%, -50%);
 `;
 
@@ -69,7 +73,12 @@ const NonInvertingOpAmpOutputVoltageLbl = styled.p<{}>`
 `;
 
 const Container = styled.div<{}>`
+  max-width: 80%;
+  height: auto;
+  padding: 0;
+  margin: 0;
   position: relative;
+  margin: auto;
 `;
 
 interface Props {
@@ -93,15 +102,13 @@ const OpAmpSchematic = (props: Props) => {
     <Box sx={{ border: 'solid 10px black', marginTop: '3%' }}>
       { inverting ? 
       (
-        <>
-          <Container>
-            <OpAmpSchematicImg src={invertingAmpSchematic}/>
-            <InvertingOpAmpInputResistorLbl>{ inputResistorValue }</InvertingOpAmpInputResistorLbl>
-            <InvertingOpAmpFeedbackResistorLbl>{ feedbackResistorValue }</InvertingOpAmpFeedbackResistorLbl>
-            <InvertingOpAmpInputVoltageLbl>{ inputVoltageValue }</InvertingOpAmpInputVoltageLbl>
-            <InvertingOpAmpOutputVoltageLbl>{ outputVoltageValue }</InvertingOpAmpOutputVoltageLbl>
-          </Container>
-        </>
+        <Container>
+          <OpAmpSchematicImg src={invertingAmpSchematic}/>
+          <InvertingOpAmpInputResistorLbl>{ inputResistorValue }</InvertingOpAmpInputResistorLbl>
+          <InvertingOpAmpFeedbackResistorLbl>{ feedbackResistorValue }</InvertingOpAmpFeedbackResistorLbl>
+          <InvertingOpAmpInputVoltageLbl>{ inputVoltageValue }</InvertingOpAmpInputVoltageLbl>
+          <InvertingOpAmpOutputVoltageLbl>{ outputVoltageValue }</InvertingOpAmpOutputVoltageLbl>
+        </Container>
       ): (
         <Container>
           <OpAmpSchematicImg src={nonInvertingAmpSchematic} />
